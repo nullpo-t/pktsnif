@@ -30,7 +30,7 @@ func getDNSRespQ(p gopacket.Packet) (s []string) {
 	for _, q := range questions {
 		s = append(s, string(q.Name))
 	}
-	return s
+	return
 }
 
 func getDNSRespA(p gopacket.Packet) (s []string) {
@@ -40,14 +40,14 @@ func getDNSRespA(p gopacket.Packet) (s []string) {
 			s = append(s, a.IP.String())
 		}
 	}
-	return s
+	return
 }
 
-func getL3DstIP(p gopacket.Packet) (ip net.IP) {
+func getL3DstIP(p gopacket.Packet) net.IP {
 	return p.Layer(layers.LayerTypeIPv4).(*layers.IPv4).DstIP
 }
 
-func getL3SrcIP(p gopacket.Packet) (ip net.IP) {
+func getL3SrcIP(p gopacket.Packet) net.IP {
 	return p.Layer(layers.LayerTypeIPv4).(*layers.IPv4).SrcIP
 }
 
