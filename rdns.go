@@ -96,11 +96,11 @@ func FilterDNSResponses(packets []*DNSResponse, filter []string) []*DNSResponse 
 }
 
 func main() {
-	usage := `Usage:
-  %s PCAP_FILE IP_ADDRESS...
-Example:
-  %s abc.pcap 10.0.0.1 10.0.0.2
-`
+	usage := "Usage:\n" +
+		"  %s PCAP_FILE IP_ADDRESS...\n" +
+		"Example:\n" +
+		"  %s abc.pcap 10.0.0.1 10.0.0.2"
+
 	if len(os.Args) < 3 {
 		fmt.Fprintf(os.Stderr, usage, os.Args[0], os.Args[0])
 		os.Exit(1)
